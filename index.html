@@ -9,19 +9,23 @@
 <body>
     <button type="button" onclick="notificar()">Enviar notificacion</button>
     <script type="text/javascript">
-        document.addEventListener("DOMcontentLoaded", function(){
+        document.addEventListener("DOMContentLoaded", function(){
             if(!Notification){
                 alert("las notificaciones no se soportan en tu navegador");
                 return;
-                if(Notification.permision!=="granted"){
+                
+        
+
+            }
+            else{
+                if(Notification.permission!=="granted"){
                     Notification.requestPermission();
                 }
-        
 
             }
         } );
         function notificar(){
-            if(Notification.permision!=="granted"){
+            if(Notification.permission!="granted"){
                 Notification.requestPermission();
             }else{
                 var notification=new Notification(
